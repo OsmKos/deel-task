@@ -1,5 +1,13 @@
 # DEEL BACKEND TASK
 
+Considering 3 hours timing here I describe what else can be done to make it real life service.
+1. Spliting repositories per model.
+2. Introduce service layer, to be less dependent on repositoriy changes.
+3. Proper error handling with custom errors.
+4. I haven't worked with sequalize alot, so I believe not all queries are made in an optimal way.
+5. Unit tests
+6. Make sense to also have a presentation contracts and mappers.
+
   
 
 💫 Welcome! 🎉

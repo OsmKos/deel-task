@@ -75,16 +75,29 @@ Job.init(
   }
 );
 
-Profile.hasMany(Contract, {as :'Contractor',foreignKey:'ContractorId'})
-Contract.belongsTo(Profile, {as: 'Contractor'})
-Profile.hasMany(Contract, {as : 'Client', foreignKey:'ClientId'})
-Contract.belongsTo(Profile, {as: 'Client'})
-Contract.hasMany(Job)
-Job.belongsTo(Contract)
+const CONTRACT_STATUS = {
+  new: 'new',
+  in_progress: 'in_progress',
+  terminated: 'terminated'
+}
+
+const PROFILE_TYPE = {
+  client: 'client',
+  contractor: 'contractor'
+}
+
+Profile.hasMany(Contract, {as :'Contractor', foreignKey:'ContractorId'});
+Contract.belongsTo(Profile, {as: 'Contractor'});
+Profile.hasMany(Contract, {as : 'Client', foreignKey:'ClientId'});
+Contract.belongsTo(Profile, {as: 'Client'});
+Contract.hasMany(Job);
+Job.belongsTo(Contract);
 
 module.exports = {
   sequelize,
   Profile,
   Contract,
-  Job
+  Job,
+  PROFILE_TYPE,
+  CONTRACT_STATUS
 };
