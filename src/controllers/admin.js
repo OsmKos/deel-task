@@ -1,5 +1,5 @@
 const mainRepository = require('../repositories/mainRepository');
-const DAY_IN_MS = 24 * 60 * 60 + 1000;
+const YEAR_IN_MS = 24 * 60 * 60 * 1000 * 365;
 
 exports.getBestProfession = async (req, res) => {
     const { start, end } = extractDateFromReq(req);
@@ -24,7 +24,7 @@ function mapClientToPresentation (client) {
 
 function extractDateFromReq (req) {
     return {
-        start: req.query.start ? Number(req.query.start) : Date.now() - DAY_IN_MS,
+        start: req.query.start ? Number(req.query.start) : Date.now() - YEAR_IN_MS,
         end: req.query.end ? Number(req.query.end) : Date.now()
     }
 }

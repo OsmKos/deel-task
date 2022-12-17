@@ -11,13 +11,13 @@ const {
 class MainRepository {
 
     async getProfileById (id) {
-        const profile = await Profile.findOne({where: { id }});
+        const profile = await Profile.findByPk(id, { raw: true });
         return profile;
     }
 
     async getContractById (id) {
         const contract = await Contract.findByPk(id, { raw: true });
-        return contract || null;
+        return contract;
     }
 
     async getUserJobs (profileId, paid) {
